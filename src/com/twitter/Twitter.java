@@ -2,15 +2,32 @@ package com.twitter;
 import java.util.LinkedList;
 import com.twitter.poruke.TwitterPoruka;
 
+/**
+ * Ova klasa predstavlja Twitter
+ * @author Mina Marjanovic
+ *
+ */
+
 public class Twitter {
 	
-	private LinkedList<TwitterPoruka> poruke =
+	/**
+	 * Lista objekata klase TwitterPoruka koja predstavlja poruke
+	 */
+	private LinkedList<TwitterPoruka> poruke = new LinkedList<TwitterPoruka>();
 	
-	new LinkedList<TwitterPoruka>();
-	
+	/**
+	 * Metoda koja vraca lista objekata TwitterPoruka koja predstavlja sve poruke
+	 * @return poruke
+	 */
 	public LinkedList<TwitterPoruka> vratiSvePoruke(){
 		return poruke;
 	}
+	
+	/**
+	 * Metoda koja pravi novu poruku i unosi je na kraj liste
+	 * @param korisnik
+	 * @param poruka
+	 */
 
 	public void unesi(String korisnik, String poruka) {
 		//Pravi se nova poruka i puni podacima.
@@ -22,6 +39,12 @@ public class Twitter {
 		poruke.addLast(tp);
 	}
 	
+	/**
+	 * Metoda koja vraca niz koji sadrzi sve poruke sa datim tagom
+	 * @param maxBroj kapacitet niza
+	 * @param tag na osnovu kog pretrazujemo
+	 * @return niz objekata klase TwitterPoruka
+	 */
 	public TwitterPoruka[] vratiPoruke(int maxBroj, String tag) {
 		if (tag==null || tag.isEmpty())
 			throw new RuntimeException("Morate uneti tag");
@@ -50,5 +73,4 @@ public class Twitter {
 	
 		return rezultat;
 	}
-
 } 
